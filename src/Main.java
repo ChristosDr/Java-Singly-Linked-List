@@ -31,6 +31,35 @@ public class Main {
         current.next = newNode;
     }
 
+    public void insertPosition(int position, int value){
+
+        ListNode node = new ListNode(value);
+        if(position == 1){
+            node.next = head;
+            head = node;
+        }else {
+            ListNode previous = head;
+            int count =1;
+            while(count < position -1){
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            node.next = current;
+            previous.next = node;
+        }
+
+//        ListNode current = head;
+//        ListNode newNode = new ListNode(value);
+//        int k =1;
+//        while(current.next != null && k<position-1 ){
+//            current = current.next;
+//            k++;
+//        }
+//        newNode.next = current.next;
+//        current.next = newNode;
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
@@ -43,8 +72,9 @@ public class Main {
         second.next = third;
         third.next = fourth;
 
-        sll.insertFirst(0);
-        sll.insertLast(5);
+        //sll.insertFirst(0);
+        //sll.insertLast(5);
+        sll.insertPosition(5,22);
 
         ListNode current = sll.head;
         while(current != null){
