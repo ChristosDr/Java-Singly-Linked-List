@@ -60,6 +60,22 @@ public class Main {
 //        current.next = newNode;
     }
 
+    public void deletePosition(int pos){
+        if (pos==1 ){
+            head = head.next;
+        }else{
+            ListNode previous = head;
+            int count = 1;
+            while(count < pos -1){
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            previous.next = current.next;
+        }
+
+    }
+
     public void deleteFirst(){
         //dikos mou tropos alliws phgaine video 49
         if (head == null){
@@ -102,7 +118,8 @@ public class Main {
         //sll.insertLast(5);
         //sll.insertPosition(5,22);
         //sll.deleteFirst();
-        sll.deleteLast();
+        //sll.deleteLast();
+        sll.deletePosition(2);
 
         ListNode current = sll.head;
         while(current != null){
