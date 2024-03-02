@@ -72,6 +72,20 @@ public class Main {
 
     }
 
+    public ListNode deleteLast(){
+        if (head == null || head.next ==null){
+            return null;
+        }
+        ListNode current = head;
+        ListNode previous = null;
+        while(current.next != null){
+            previous = current;
+            current = current.next;
+        }
+        previous.next = null;
+        return current;
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
@@ -85,9 +99,10 @@ public class Main {
         third.next = fourth;
 
         //sll.insertFirst(0);
-        sll.insertLast(5);
+        //sll.insertLast(5);
         //sll.insertPosition(5,22);
-        sll.deleteFirst();
+        //sll.deleteFirst();
+        sll.deleteLast();
 
         ListNode current = sll.head;
         while(current != null){
