@@ -60,6 +60,18 @@ public class Main {
 //        current.next = newNode;
     }
 
+    public void deleteFirst(){
+        //dikos mou tropos alliws phgaine video 49
+        if (head == null){
+            //return null;
+        }
+        //ListNode temp = head;
+        head = head.next;
+        //temp.next = null;
+        //return temp;
+
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
@@ -73,8 +85,9 @@ public class Main {
         third.next = fourth;
 
         //sll.insertFirst(0);
-        //sll.insertLast(5);
-        sll.insertPosition(5,22);
+        sll.insertLast(5);
+        //sll.insertPosition(5,22);
+        sll.deleteFirst();
 
         ListNode current = sll.head;
         while(current != null){
