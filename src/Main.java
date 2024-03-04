@@ -111,6 +111,19 @@ public class Main {
         return false;
     }
 
+    public ListNode ReversedList(ListNode head){//na to jana dw
+        ListNode current = head;
+        ListNode previous = null;
+        ListNode next = null;
+        while(current != null){
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        return previous;
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
@@ -128,7 +141,9 @@ public class Main {
         //sll.insertPosition(5,22);
         //sll.deleteFirst();
         //sll.deleteLast();
-        sll.deletePosition(2);
+        //sll.deletePosition(2);
+        //ListNode bab = sll.ReversedList(sll.head);
+        //ListNode current = bab;
 
         ListNode current = sll.head;
         while(current != null){
