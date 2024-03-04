@@ -102,6 +102,15 @@ public class Main {
         return current;
     }
 
+    public boolean SearchElement(int num){
+        ListNode current = head;
+        while(current != null){
+            if (current.data == num) return true;
+            current = current.next;
+        }
+        return false;
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
