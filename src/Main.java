@@ -124,6 +124,16 @@ public class Main {
         return previous;
     }
 
+    public ListNode MiddleNode(ListNode head){
+        ListNode slowPtr = head;
+        ListNode fastPtr = head;
+        while (slowPtr != null && fastPtr != null){
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
+        }
+        return slowPtr;
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
