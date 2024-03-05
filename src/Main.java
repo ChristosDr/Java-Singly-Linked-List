@@ -149,6 +149,17 @@ public class Main {
         return mainPtr;
     }
 
+    public void RemoveDuplicatesFromSorted(ListNode head){
+        ListNode current = head;
+        while (current != null && current.next != null){
+            if (current.data == current.next.data){
+                current.next = current.next.next;
+            }else{
+                current = current.next;
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
@@ -161,7 +172,7 @@ public class Main {
         second.next = third;
         third.next = fourth;
 
-        //sll.insertFirst(0);
+        //sll.insertFirst(1);
         //sll.insertLast(5);
         //sll.insertPosition(5,22);
         //sll.deleteFirst();
@@ -169,6 +180,7 @@ public class Main {
         //sll.deletePosition(2);
         //ListNode bab = sll.ReversedList(sll.head);
         //ListNode current = bab;
+        //sll.RemoveDuplicatesFromSorted(sll.head);
 
         ListNode current = sll.head;
         while(current != null){
