@@ -134,6 +134,21 @@ public class Main {
         return slowPtr;
     }
 
+    public ListNode getNthNodeFromEnd(int n){
+        ListNode mainPtr = head;
+        ListNode refPtr = head;
+        int count =0;
+        while(count < n){
+            refPtr = refPtr.next;
+            count++;
+        }
+        while(refPtr != null){
+            refPtr = refPtr.next;
+            mainPtr = mainPtr.next;
+        }
+        return mainPtr;
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
