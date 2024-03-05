@@ -160,6 +160,19 @@ public class Main {
         }
     }
 
+    public ListNode insertInSortedList(int n){
+        ListNode current = head;
+        ListNode newNode = new ListNode(n);
+        ListNode temp = null;
+        while(current != null && current.data < newNode.data){
+            temp = current;
+            current = current.next;
+        }
+        temp.next = newNode;
+        newNode.next = current;
+        return head;
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
@@ -181,6 +194,7 @@ public class Main {
         //ListNode bab = sll.ReversedList(sll.head);
         //ListNode current = bab;
         //sll.RemoveDuplicatesFromSorted(sll.head);
+        //sll.insertInSortedList(10);
 
         ListNode current = sll.head;
         while(current != null){
