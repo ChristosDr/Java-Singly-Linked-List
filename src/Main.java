@@ -198,6 +198,28 @@ public class Main {
         return false;
     }
 
+    public ListNode FindTheStartOfTheLoop(){
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+        while(fastPtr != null && fastPtr.next != null){
+            fastPtr = fastPtr.next.next;
+            slowPtr = slowPtr.next;
+            if (slowPtr == fastPtr){
+                return getStartingNode(slowPtr);
+            }
+        }
+        return null;
+    }
+
+    public ListNode getStartingNode(ListNode slowPtr){
+        ListNode temp = head;
+        while (slowPtr != temp){
+            temp = temp.next;
+            slowPtr = slowPtr.next;
+        }
+        return temp;
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
