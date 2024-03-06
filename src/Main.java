@@ -184,6 +184,20 @@ public class Main {
         temp.next = current.next;
     }
 
+    public boolean containsLoop(){
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+        while(fastPtr != null && fastPtr.next != null){
+            fastPtr = fastPtr.next.next;
+            slowPtr = slowPtr.next;
+            if (slowPtr == fastPtr){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
