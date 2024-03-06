@@ -173,6 +173,17 @@ public class Main {
         return head;
     }
 
+    public void removeElement(int n){
+        ListNode current = head;
+        ListNode temp = null;
+        while (current != null && current.data != n){
+            temp = current;
+            current = current.next;
+        }
+        if (current == null) return;
+        temp.next = current.next;
+    }
+
 
     public static void main(String[] args) {
         Main sll = new Main();
