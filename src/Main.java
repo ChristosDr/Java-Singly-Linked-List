@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Main {
 
     private ListNode head;
@@ -184,7 +186,7 @@ public class Main {
         temp.next = current.next;
     }
 
-    public boolean containsLoop(){
+    public boolean containsLoop(){//Floyds Cycle Detection
         ListNode fastPtr = head;
         ListNode slowPtr = head;
         while(fastPtr != null && fastPtr.next != null){
@@ -198,7 +200,7 @@ public class Main {
         return false;
     }
 
-    public ListNode FindTheStartOfTheLoop(){
+    public ListNode FindTheStartOfTheLoop(){//Floyds Cycle Detection
         ListNode fastPtr = head;
         ListNode slowPtr = head;
         while(fastPtr != null && fastPtr.next != null){
@@ -219,7 +221,27 @@ public class Main {
         }
         return temp;
     }
-    //--
+
+    public void removeLoop(){
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+        while(fastPtr != null && slowPtr != null){
+            fastPtr = fastPtr.next;
+            slowPtr = slowPtr.next;
+            if (slowPtr == fastPtr){
+                removeLoop(slowPtr);
+            }
+        }
+    }
+
+    private void removeLoop(ListNode slowPtr){
+        ListNode temp = head;
+        while(temp.next != slowPtr.next){
+            temp = temp.next;
+            slowPtr = slowPtr.next;
+        }
+        slowPtr.next = null;
+    }
 
 
     public static void main(String[] args) {
